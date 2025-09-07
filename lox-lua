@@ -1,0 +1,13 @@
+#!/usr/bin/env lua
+
+local runner = require("src.runner")
+local os = require("os")
+
+if #arg > 1 then
+  print("Usage: lox-lua [script]")
+  os.exit(64)
+elseif #arg == 1 then
+  runner.runFile(arg[1])
+else
+  runner.runInteractive()
+end
