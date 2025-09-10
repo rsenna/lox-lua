@@ -46,21 +46,19 @@ function Scanner:scanToken()
         else
             self:addToken(tokens.EQUAL)
         end
-
+     
     elseif ch == tokens.LESS then
         if self:match(tokens.EQUAL) then
             self:addToken(tokens.LESS_EQUAL)
         else
             self:addToken(tokens.LESS)
         end
-
     elseif ch == tokens.GREATER then
         if self:match(tokens.EQUAL) then
             self:addToken(tokens.GREATER_EQUAL)
         else
             self:addToken(tokens.GREATER)
         end
-
     elseif ch == tokens.SLASH then
         if self:match(tokens.SLASH) then
             while self:peek() ~= "\n" and not self:isAtEnd() do
@@ -69,25 +67,18 @@ function Scanner:scanToken()
         else
             self:addToken(tokens.SLASH)
         end
-
     elseif ch == " " or ch == "\r" or ch == "\t" then
         -- Ignore whitespace.
-
     elseif ch == "\n" then
         self.line = self.line + 1
-
     elseif ch == tokens.DOUBLE_QUOTE then
         self:string()
-
     elseif self:isDigit(ch) then
         self:number()
-
     elseif self:isAlpha(ch) then
         self:identifier()
-    
     elseif tokens[ch] ~= nil then
-      self:addToken(tokens[ch])
-
+        self:addToken(tokens[ch])
     else
         error("Unexpected character at line " .. self.line .. ": " .. ch)
     end
@@ -100,20 +91,28 @@ function Scanner:advance()
 end
 
 function Scanner:match(expected)
-    if self:isAtEnd() then return false end
-    if self.source:sub(self.current, self.current) ~= expected then return false end
+    if self:isAtEnd() then
+        return false
+    end
+    if self.source:sub(self.current, self.current) ~= expected then
+        return false
+    end
 
     self.current = self.current + 1
     return true
 end
 
 function Scanner:peek()
-    if self:isAtEnd() then return "\0" end
+    if self:isAtEnd() then
+        return "\0"
+    end
     return self.source:sub(self.current, self.current)
 end
 
 function Scanner:peekNext()
-    if self.current + 1 > #self.source then return "\0" end
+    if self.current + 1 > #self.source then
+        return "\0"
+    end
     return self.source:sub(self.current + 1, self.current + 1)
 end
 
@@ -123,7 +122,9 @@ end
 
 function Scanner:string()
     while self:peek() ~= '"' and not self:isAtEnd() do
-        if self:peek() == "\n" then self.line = self.line + 1 end
+        if self:peek() == "\n" then
+            self.line = self.line + 1
+        end
         self:advance()
     end
 
@@ -131,7 +132,7 @@ function Scanner:string()
         error("Unterminated string at line " .. self.line)
     end
 
-    self:advance() -- The closing ".
+    self:advance()   -- The closing ".
 
     local value = self.source:sub(self.start + 1, self.current - 2)
     self:addToken("STRING", value)
@@ -141,6 +142,7 @@ function Scanner:addToken(type, literal)
     local text = self.source:sub(self.start, self.current - 1)
     table.insert(self.tokens, { type = type, lexeme = text, literal = literal, line = self.line })
 end
+
 function Scanner:isAlpha(ch)
     return (ch >= "a" and ch <= "z") or (ch >= "A" and ch <= "Z") or ch == "_"
 end
