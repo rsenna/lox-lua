@@ -21,7 +21,7 @@ No dependency installation is required.
 
 Run the applicable commands before opening a pull request:
 
-- `lua src/runner.lua`
+- `lua -e 'require("src.runner").run("return 1")'`
 - `./lox-lua`
 
 If a tool or platform is unavailable, record exactly what was not run and why.
