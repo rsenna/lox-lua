@@ -5,7 +5,7 @@ lox-lua is a small learning implementation of the Lox programming language from 
 ## Technical stack
 
 - Lua, with no third-party runtime dependencies
-- POSIX launcher script at `./lox-lua`
+- Executable Lua entrypoint at `./lox-lua` (`#!/usr/bin/env lua`)
 
 ## Usage
 
@@ -26,7 +26,7 @@ Early work in progress. Scanner and token modules exist, but the interpreter is 
 
 - Parsing, AST construction, evaluation, functions, classes, and error recovery are not implemented.
 - Scanner behavior has little automated coverage.
-- The command-line launcher assumes a POSIX shell and a `lua` executable on `PATH`.
+- The command-line launcher assumes executable shebang support and a `lua` executable on `PATH`.
 - Language-version compatibility is not enforced automatically.
 
 ## Next steps
