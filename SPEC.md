@@ -2,7 +2,7 @@
 
 ## Purpose
 
-**lox-lua** is a dependency-free Lua Lox interpreter. This document records the inferred product boundary and current engineering state; source code and tests remain authoritative where they disagree.
+**lox-lua** is a work-in-progress, dependency-free Lua implementation of a Lox interpreter. This document records the inferred product boundary and current engineering state; source code and tests remain authoritative where they disagree.
 
 ## Current status
 
