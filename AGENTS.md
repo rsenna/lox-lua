@@ -2,7 +2,7 @@
 
 ## Repository
 
-This repository is **lox-lua**, a dependency-free Lua Lox interpreter. The repository slug is the canonical project name in documentation and release metadata.
+This repository is **lox-lua**, a dependency-free work-in-progress Lua implementation of a Lox interpreter. The repository slug is the canonical project name in documentation and release metadata.
 
 ## Working rules
 
