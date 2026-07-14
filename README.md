@@ -1,6 +1,6 @@
 # lox-lua
 
-lox-lua is a small learning implementation of the Lox programming language from *Crafting Interpreters*, written in Lua. It currently provides a command-line runner and the beginnings of lexical scanning and token definitions.
+lox-lua is a small learning project toward implementing the Lox programming language from *Crafting Interpreters*, written in Lua. Today the CLI runner executes Lua source in a minimal sandbox; scanner/token modules are early groundwork for a future Lox interpreter.
 
 ## Technical stack
 
