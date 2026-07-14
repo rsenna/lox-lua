@@ -9,7 +9,7 @@ lox-lua is a small learning implementation of the Lox programming language from 
 
 ## Usage
 
-Requires Lua 5.4 or newer.
+Requires Lua 5.2 or newer.
 
 ```sh
 ./lox-lua path/to/program.lox
