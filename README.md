@@ -12,11 +12,11 @@ lox-lua is a small learning project toward implementing the Lox programming lang
 Requires Lua 5.2 or newer.
 
 ```sh
-./lox-lua path/to/program.lox
+./lox-lua path/to/program.lua
 ./lox-lua
 ```
 
-The second form starts the interactive prompt.
+The second form starts the interactive prompt. The current runner executes Lua source; `.lox` source is not supported yet.
 
 ## Status
 
